@@ -33,15 +33,19 @@ leaderboard = (entries, scores) ->
         f = (n) ->
           g = gos[n]
           if g?
-            "#{ g.name } (#{ g.to_par })"
+            "#{ g.ctry } #{ g.name } (#{ g.to_par } <small>thru</small> #{ g.thru })"
           else
             ""
         entry.via = [f(0), f(1), f(2)].join ', '
         entry.unused = [f(3), f(4), f(5), f(6)].join ', '
 
         entry.total = gos[0].score + gos[1].score + gos[2].score
-
-
+        if entry.total > 0
+          entry.totalString = '+' + entry.total
+        else if entry.total == 0
+          entry.totalString = 'E'
+        else
+          entry.totalString = entry.total
 
         # 3)  The winner will be determined by the lowest team score determined by your best 3 players (i.e., if you have 4 players make the cut who finish Sunday at -5, -5, -5, and +1, your score is -15).
 
