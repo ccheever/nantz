@@ -38,6 +38,16 @@ scoresAsync = co.wrap ->
 
     row.player = unwrap row.player
     row.today = unwrap row.today
+
+    spreadsheetName = (name) ->
+      """Transforms a name into the scheme that Jay used on the spreadsheet"""
+      lastName = name.split(/\s+/)?[-1...][0]
+      if lastName is "Johnson"
+        name[0] + " " + lastName
+      else
+        lastName
+
+    row.name = spreadsheetName row.player
     data.push row
   data
 
