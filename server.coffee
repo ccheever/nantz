@@ -32,6 +32,9 @@ app.get '/', (req, res) ->
           body {
             font-family: Arial, Helvetica, Verdana, Sans-serif;
           }
+          .winner {
+            background: #ffeecc;
+          }
           .golfers {
             font-size: 0.8em;
           }
@@ -100,9 +103,9 @@ app.get '/', (req, res) ->
           <tbody>
             #{
               ("""
-              <tr class="row">
+              <tr class="row#{ if i == 0 then ' winner' else '' }">
                 <td class="rank">#{ i + 1}.</td>
-                <td class="total #{ if x.totalString[0] is '-' then 'red' else '' }">#{ x.totalString }</td>
+                <td class="total#{ if x.totalString[0] is '-' then ' red' else '' }">#{ x.totalString }</td>
                 <td class="name">#{ x.Name }<br /><small class="email">#{ x.Email }</small></td>
                 <td class="golfers">#{ x.via }</td>
                 <td class="unused">#{ x.unused }</td>
