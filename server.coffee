@@ -85,15 +85,16 @@ app.get '/', (req, res) ->
             width: 100%;
             color: #116611;
             text-align: center;
-            font-size: 4em;
+            font-size: 2em;
             font-weight: bold;
             font-family: Georgia, Arial, Helvetica, Sans-serif;
             font-style: italic;
             padding-bottom: 15px;
           }
           .logo {
-            height: 80px;
-            width: 80px;
+            height: 100px;
+            width: 100px;
+            vertical-align: middle;
           }
         </style>
       </head>
