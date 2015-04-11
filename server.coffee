@@ -45,6 +45,7 @@ app.get '/', (req, res) ->
           }
           .name {
             font-size: 1.2em;
+            padding-right: 12px;
           }
           table {
             border-collapse: collapse;
