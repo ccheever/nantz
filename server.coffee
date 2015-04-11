@@ -71,6 +71,10 @@ app.get '/', (req, res) ->
           .red {
             color: #991111;
           }
+          .cut {
+            opacity: 0.5;
+            background: #dddddd;
+          }
           .email {
             opacity: 0.4;
             font-size: 0.4em;
@@ -103,7 +107,7 @@ app.get '/', (req, res) ->
           <tbody>
             #{
               ("""
-              <tr class="row#{ if i == 0 then ' winner' else '' }">
+              <tr class="row#{ if i == 0 then ' winner' else if x.totalString is 'CUT' then ' cut' else '' }">
                 <td class="rank">#{ i + 1}.</td>
                 <td class="total#{ if x.totalString[0] is '-' then ' red' else '' }">#{ x.totalString }</td>
                 <td class="name">#{ x.Name }<br /><small class="email">#{ x.Email }</small></td>
