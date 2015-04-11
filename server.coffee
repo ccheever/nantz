@@ -1,3 +1,5 @@
+#!/usr/bin/env coffee
+
 co = require 'co'
 express = require 'express'
 moment = require 'moment-timezone'
@@ -28,7 +30,7 @@ app.get '/', (req, res) ->
         <title>The Masters Social 2015 Leaderboard</title>
         <style>
           body {
-            font-family: 'Georgia', 'Helvetica', 'Sans-serif';
+            font-family: Arial, Helvetica, Verdana, Sans-serif;
           }
           .golfers {
             font-size: 0.8em;
@@ -63,10 +65,20 @@ app.get '/', (req, res) ->
           .red {
             color: #991111;
           }
+          .header {
+            width: 100%;
+            height: 100px;
+            color: #116611;
+            text-align: center;
+            font-size: 3em;
+            font-weight: bold;
+            font-family: Arial, Helvetica, Sans-serif;
+            font-style: italic;
+          }
         </style>
       </head>
       <body>
-        <div style="width: 100%; height: 100px; color: #116611; text-align: center; font-size: 3em; font-weight: bold; font-family: Georgia, Times New Roman, Serif; margin-top: 20px;">The Masters Social 2015</div>
+        <div class="header">The Masters Social 2015</div>
         <table>
           <thead>
             <tr>
