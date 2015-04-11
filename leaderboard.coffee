@@ -37,7 +37,8 @@ leaderboard = (entries, scores) ->
         f = (n) ->
           g = gos[n]
           if g?
-            "#{ g.ctry } #{ g.name } (#{ g.to_par } <small>thru #{ g.thru }</small>)"
+            #"#{ g.ctry } #{ g.name } (#{ g.to_par } <small>thru #{ g.thru }</small>)"
+            "#{ g.name } (#{ g.to_par } <small>thru #{ g.thru }</small>)"
           else
             ""
         entry.via = [f(0), f(1), f(2)].join ', '
