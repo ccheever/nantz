@@ -17,7 +17,12 @@ leaderboard = (entries, scores) ->
       lowestScore = Infinity
       byName = {}
       for player in scores
-        player.score = parseInt player.to_par
+        if player.to_par is 'E'
+          player.score = 0
+        else
+          player.score = parseInt player.to_par
+        if player.thru is 'CUT'
+          player.score += 1000
         if player.score < lowestScore
           lowestScore = player.score
         byName[player.name] = player
@@ -45,7 +50,9 @@ leaderboard = (entries, scores) ->
         entry.unused = [f(3), f(4), f(5), f(6)].join ', '
 
         entry.total = gos[0].score + gos[1].score + gos[2].score
-        if entry.total > 0
+        if entry.total > 900
+          entry.totalString = 'CUT'
+        else if entry.total > 0
           entry.totalString = '+' + entry.total
         else if entry.total == 0
           entry.totalString = 'E'
