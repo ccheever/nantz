@@ -33,7 +33,7 @@ app.get '/', (req, res) ->
             font-family: Arial, Helvetica, Verdana, Sans-serif;
           }
           .winner {
-            background: #ffeecc;
+            opacity: 1.0;
           }
           .golfers {
             font-size: 0.8em;
@@ -63,6 +63,9 @@ app.get '/', (req, res) ->
             border-width: 0px 0px 1px 0px;
             border-style: solid;
             padding-bottom: 6px;
+          }
+          tr {
+            opacity: 0.9;
           }
           .champScore {
             font-size: 0.65em;
