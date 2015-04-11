@@ -85,16 +85,20 @@ app.get '/', (req, res) ->
             width: 100%;
             color: #116611;
             text-align: center;
-            font-size: 2em;
+            font-size: 4em;
             font-weight: bold;
             font-family: Georgia, Arial, Helvetica, Sans-serif;
             font-style: italic;
             padding-bottom: 15px;
           }
+          .logo {
+            height: 80px;
+            width: 80px;
+          }
         </style>
       </head>
       <body>
-        <div class="header">The Masters Social 2015</div>
+        <div class="header"><img src="http://cdc03.com/TheMastersSocial.png" class="logo" />The Masters Social 2015</div>
         <table>
           <thead>
             <tr>
