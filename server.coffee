@@ -73,7 +73,6 @@ app.get '/', (req, res) ->
           }
           .cut {
             opacity: 0.5;
-            background: #dddddd;
           }
           .email {
             opacity: 0.4;
