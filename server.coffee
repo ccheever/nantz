@@ -13,9 +13,13 @@ $scores = []
 setScoresAsync = ->
   espn.scoresAsync().then (scores) ->
     $scores = scores
-    console.log "Scores updated at #{ moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a'); }"
+    console.log "Scores updated at #{ moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a') }"
 
 app.get '/', (req, res) ->
+
+  ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  console.log "Request for leaderboard at #{ moment(Date.now()).format('MMMM Do YYYY, h:mm:ss a') } from #{ ip }"
+
   contestants.then (entries) ->
     lb = leaderboard.leaderboard entries, $scores
     html = """
@@ -52,6 +56,13 @@ app.get '/', (req, res) ->
             border-style: solid;
             padding-bottom: 6px;
           }
+          .champScore {
+            font-size: 0.65em;
+            opacity: 0.6;
+          }
+          .red {
+            color: #991111;
+          }
         </style>
       </head>
       <body>
@@ -64,6 +75,7 @@ app.get '/', (req, res) ->
               <th>Entry</th>
               <th>Top 3 Golfers</th>
               <th>Other Golfers</th>
+              <th><small>Champ (∆)</small></th>
             </tr>
           </thead>
           <tbody>
@@ -71,10 +83,11 @@ app.get '/', (req, res) ->
               ("""
               <tr class="row">
                 <td class="rank">#{ i + 1}.</td>
-                <td class="total">#{ x.totalString }</td>
+                <td class="total #{ if x.totalString[0] is '-' then 'red' else '' }">#{ x.totalString }</td>
                 <td class="name">#{ x.Name }</td>
                 <td class="golfers">#{ x.via }</td>
                 <td class="unused">#{ x.unused }</td>
+                <td class="champScore">#{ x.champScore } <small>(∆ #{ x.tiebreakerDelta })</small></td>
               </tr>
               """ for x, i in lb).join ""
             }
