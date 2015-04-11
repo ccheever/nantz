@@ -68,6 +68,10 @@ app.get '/', (req, res) ->
           .red {
             color: #991111;
           }
+          .email {
+            opacity: 0.4;
+            font-size: 0.4em;
+          }
           .header {
             width: 100%;
             height: 100px;
@@ -99,7 +103,7 @@ app.get '/', (req, res) ->
               <tr class="row">
                 <td class="rank">#{ i + 1}.</td>
                 <td class="total #{ if x.totalString[0] is '-' then 'red' else '' }">#{ x.totalString }</td>
-                <td class="name">#{ x.Name }</td>
+                <td class="name">#{ x.Name }<br /><small class="email">#{ x.Email }</small></td>
                 <td class="golfers">#{ x.via }</td>
                 <td class="unused">#{ x.unused }</td>
                 <td class="champScore">#{ x.champScore } <small>(∆ #{ x.tiebreakerDelta })</small></td>
