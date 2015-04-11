@@ -42,6 +42,8 @@ app.get '/', (req, res) ->
           .total {
             font-weight: bold;
             font-size: 1.2em;
+            padding-left: 10px;
+            padding-right: 10px;
           }
           .name {
             font-size: 1.2em;
