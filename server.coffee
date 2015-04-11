@@ -74,13 +74,13 @@ app.get '/', (req, res) ->
           }
           .header {
             width: 100%;
-            height: 100px;
             color: #116611;
             text-align: center;
-            font-size: 3em;
+            font-size: 2em;
             font-weight: bold;
-            font-family: Arial, Helvetica, Sans-serif;
+            font-family: Georgia, Arial, Helvetica, Sans-serif;
             font-style: italic;
+            padding-bottom: 15px;
           }
         </style>
       </head>
